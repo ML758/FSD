@@ -1,0 +1,145 @@
+﻿Q1) 
+
+App.js- 
+
+import React, { useState } from "react"; 
+
+ 
+
+function App() { 
+
+const [selectedAnimal, setSelectedAnimal] = useState(""); 
+
+ 
+
+const animals = ["Dog", "Cat", "Elephant", "Lion", "Tiger"]; 
+
+ 
+
+return ( 
+
+<div style={{ textAlign: "center", marginTop: "50px" }}> 
+
+<h2>Select an Animal</h2> 
+
+<select 
+
+onChange={(e) => setSelectedAnimal(e.target.value)} 
+
+value={selectedAnimal} 
+
+> 
+
+<option value="">-- Choose an Animal --</option> 
+
+{animals.map((animal, index) => ( 
+
+<option key={index} value={animal}> 
+
+{animal} 
+
+</option> 
+
+))} 
+
+</select> 
+
+ 
+
+{selectedAnimal && ( 
+
+
+
+<h3 style={{ marginTop: "20px" }}> 
+
+You selected: {selectedAnimal} 
+
+</h3> 
+
+)} 
+
+</div> 
+
+); 
+
+} 
+
+ 
+
+export default App; 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q2) 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { FormsModule } from '@angular/forms'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [FormsModule, CommonModule], 
+
+templateUrl: './app.html', 
+
+
+
+styleUrls: ['./app.css'] 
+
+}) 
+
+export class AppComponent { 
+
+selectedColor: string = '#ff0000'; 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App.html- 
+
+<div class="container"> 
+
+<h2> Color Picker App</h2> 
+
+ 
+
+<input type="color" [(ngModel)]="selectedColor" /> 
+
+ 
+
+<div class="color-box" [style.background]="selectedColor"> 
+
+<br> 
+
+<p> Hello </p> 
+
+</div> 
+
+</div>

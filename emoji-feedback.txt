@@ -1,0 +1,163 @@
+﻿Q1) 
+
+App.js- 
+
+import React, { useState } from "react"; 
+
+ 
+
+function App() { 
+
+  const emojis = [" ", " ", " ", " ", " ", " ", " ", " ", " ", 
+
+" "]; 
+
+  const [emoji, setEmoji] = useState(" "); 
+
+ 
+
+  const changeEmoji = () => { 
+
+    const random = Math.floor(Math.random() * emojis.length); 
+
+    setEmoji(emojis[random]); 
+
+  }; 
+
+ 
+
+  return ( 
+
+    <div style={{ textAlign: "center", marginTop: "50px" }}> 
+
+      <h1 style={{ fontSize: "80px" }}>{emoji}</h1> 
+
+      <button onClick={changeEmoji}>Show Random Emoji</button> 
+
+    </div> 
+
+  ); 
+
+} 
+
+ 
+
+export default App; 
+
+ 
+
+ 
+
+
+
+ 
+
+ 
+
+Q2) 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { CommonModule } from '@angular/common'; 
+
+import { FormsModule } from '@angular/forms'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [CommonModule, FormsModule], 
+
+templateUrl: './app.html', 
+
+styleUrls: ['./app.css'] 
+
+}) 
+
+export class AppComponent { 
+
+rating = 0; 
+
+comment = ''; 
+
+ 
+
+setRating(star: number) { 
+
+this.rating = star; 
+
+} 
+
+ 
+
+submit() { 
+
+alert(`Rating: ${this.rating}\nComment: ${this.comment}`); 
+
+
+
+} 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App.html- 
+
+<h2>Feedback Form</h2> 
+
+ 
+
+<div> 
+
+<label>Rate Us:</label><br> 
+
+<span *ngFor="let s of [1,2,3,4,5]"> 
+
+<span (click)="setRating(s)" style="font-size:25px; cursor:pointer;"> 
+
+{{ s <= rating ? '★' : '☆' }} 
+
+</span> 
+
+</span> 
+
+</div> 
+
+ 
+
+<br> 
+
+ 
+
+<div> 
+
+<label>Comments:</label><br> 
+
+<textarea [(ngModel)]="comment" rows="3" cols="30"></textarea> 
+
+</div> 
+
+
+
+ 
+
+<br> 
+
+ 
+
+<button (click)="submit()">Submit</button>

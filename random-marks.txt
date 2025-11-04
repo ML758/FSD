@@ -1,0 +1,126 @@
+﻿Q1) 
+
+App.js- 
+
+import React, { useState } from "react"; 
+
+function App() { 
+
+const [number, setNumber] = useState(0); 
+
+const generateRandom = () => { 
+
+setNumber(Math.floor(Math.random() * 100));  
+
+}; 
+return ( 
+
+<div> 
+
+<h2>Random Number Generator</h2> 
+
+<h1>{number}</h1> 
+
+<button onClick={generateRandom}>Generate Random Number</button> 
+
+</div> 
+
+); 
+
+} 
+
+export default App; 
+
+ 
+
+ 
+
+ 
+
+
+
+Q2) 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [CommonModule], 
+
+templateUrl: './app.html', 
+
+styleUrls: ['./app.css'] 
+
+}) 
+
+export class AppComponent { 
+
+title = 'Student Marks Table'; 
+
+ 
+
+students = [ 
+
+{ name: 'Amit', subject: 'Math', marks: 85 }, 
+
+{ name: 'Priya', subject: 'Science', marks: 92 }, 
+
+{ name: 'Rohan', subject: 'English', marks: 78 }, 
+
+{ name: 'Sneha', subject: 'History', marks: 88 }, 
+
+{ name: 'Karan', subject: 'Geography', marks: 90 } 
+
+]; 
+
+} 
+
+ 
+
+ 
+
+
+
+ 
+
+App.html- 
+
+<h2>{{ title }}</h2> 
+
+ 
+
+<table border="1" cellspacing="0" cellpadding="8"> 
+
+<tr> 
+
+<th>Name</th> 
+
+<th>Subject</th> 
+
+<th>Marks</th> 
+
+</tr> 
+
+ 
+
+<tr *ngFor="let student of students"> 
+
+<td>{{ student.name }}</td> 
+
+<td>{{ student.subject }}</td> 
+
+<td>{{ student.marks }}</td> 
+
+</tr> 
+
+</table>

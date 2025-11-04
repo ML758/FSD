@@ -1,0 +1,108 @@
+﻿Q1) 
+
+App.js- 
+
+import React from "react"; 
+
+function App() { 
+
+const user = "User"; 
+return ( 
+<h1>Hello, {user}!</h1> 
+); 
+
+} 
+export default App; 
+
+ 
+Q2) 
+
+ 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { FormsModule } from '@angular/forms'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+  selector: 'app-root', 
+
+  standalone: true, 
+
+  imports: [CommonModule, FormsModule], 
+
+  templateUrl: './app.html', 
+
+  styleUrls: ['./app.css'] 
+
+}) 
+
+export class AppComponent { 
+
+  newTask = ''; 
+
+  tasks: string[] = []; 
+
+ 
+
+  addTask() { 
+
+    if (this.newTask.trim()) { 
+
+      this.tasks.push(this.newTask); 
+
+      this.newTask = ''; 
+
+    } 
+
+  } 
+
+ 
+
+
+
+  deleteTask(i: number) { 
+
+    this.tasks.splice(i, 1); 
+
+  } 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App.html- 
+
+<h1>Todo List</h1> 
+
+ 
+
+<input [(ngModel)]="newTask" placeholder="Enter task" /> 
+
+<button (click)="addTask()">Add</button> 
+
+ 
+
+<ul> 
+
+  <li *ngFor="let t of tasks; let i = index"> 
+
+    {{ t }} 
+
+    <button (click)="deleteTask(i)">Delete</button> 
+
+  </li> 
+
+</ul>

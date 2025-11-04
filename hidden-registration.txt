@@ -1,0 +1,119 @@
+﻿Q1) 
+
+npx create-react-app hidden-message
+cd hidden-message
+npm start
+ App.js :
+import React, { useState } from "react";
+function App() {
+  const [show, setShow] = useState(false);
+  return (
+    <div>
+      <h2>Hidden Message</h2>
+      <button onClick={() => setShow(!show)}>Show / Hide</button>
+      {show && <p>This is a hidden message!</p>}
+    </div>
+  );
+}
+export default App;
+
+ 
+
+
+Q2) 
+
+ 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { FormsModule } from '@angular/forms'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [FormsModule, CommonModule], 
+
+templateUrl: './app.html' 
+
+}) 
+
+export class AppComponent { 
+
+student = { name: '', email: '', mobile: '' }; 
+
+submitted = false; 
+
+ 
+
+register(form: any) { 
+
+if (form.valid) { 
+
+this.submitted = true; 
+
+alert('Registration Successful!'); 
+
+} 
+
+} 
+
+} 
+
+ 
+
+
+
+App.html- 
+
+<h2>Student Registration</h2> 
+
+ 
+
+<form #f="ngForm" (ngSubmit)="register(f)"> 
+
+<input placeholder="Name" name="name" [(ngModel)]="student.name" 
+required minlength="3"><br> 
+
+<div *ngIf="f.submitted && f.controls['name']?.invalid">Enter a valid 
+name</div> 
+
+ 
+
+<input placeholder="Email" name="email" [(ngModel)]="student.email" 
+required email><br> 
+
+<div *ngIf="f.submitted && f.controls['email']?.invalid">Enter a valid 
+email</div> 
+
+ 
+
+<input placeholder="Mobile" name="mobile" [(ngModel)]="student.mobile" 
+required pattern="^[0-9]{10}$"><br> 
+
+<div *ngIf="f.submitted && f.controls['mobile']?.invalid">Enter 10-digit 
+mobile</div> 
+
+ 
+
+<button type="submit">Register</button> 
+
+</form> 
+
+ 
+
+<div *ngIf="submitted"> 
+
+<h3> Registered! </h3> 
+
+<p>{{ student.name }} | {{ student.email }} | {{ student.mobile }}</p> 
+
+</div>

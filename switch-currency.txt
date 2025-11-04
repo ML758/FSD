@@ -1,0 +1,205 @@
+﻿Q1) 
+
+App.js- 
+
+import React, { useState } from "react"; 
+
+ 
+
+function App() { 
+
+const [isDark, setIsDark] = useState(false); 
+
+ 
+
+const toggleTheme = () => { 
+
+setIsDark(!isDark); 
+
+}; 
+
+ 
+
+const appStyle = { 
+
+height: "100vh", 
+
+display: "flex", 
+
+flexDirection: "column", 
+
+alignItems: "center", 
+
+justifyContent: "center", 
+
+backgroundColor: isDark ? "#222" : "#f4f4f4", 
+
+color: isDark ? "#fff" : "#000", 
+
+transition: "0.5s" 
+
+}; 
+
+ 
+
+return ( 
+
+<div style={appStyle}> 
+
+<h1>{isDark ? "Dark Mode" : "Light Mode"}</h1> 
+
+
+
+<button onClick={toggleTheme}> 
+
+Switch to {isDark ? "Light" : "Dark"} Mode 
+
+</button> 
+
+</div> 
+
+); 
+
+} 
+
+ 
+
+export default App; 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q2) 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { FormsModule } from '@angular/forms'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [FormsModule, CommonModule], 
+
+templateUrl: './app.html', 
+
+styleUrl: './app.css' 
+
+}) 
+
+
+
+export class AppComponent { 
+
+amount: number = 0; 
+
+converted: number = 0; 
+
+fromCurrency: string = 'INR'; 
+
+toCurrency: string = 'USD'; 
+
+ 
+
+convert() { 
+
+const rateINRtoUSD = 0.012; // Fixed rate: 1 INR = 0.012 USD 
+
+const rateUSDtoINR = 83.3;  // Fixed rate: 1 USD = 83.3 INR 
+
+ 
+
+if (this.fromCurrency === 'INR' && this.toCurrency === 'USD') { 
+
+this.converted = this.amount * rateINRtoUSD; 
+
+} else if (this.fromCurrency === 'USD' && this.toCurrency === 'INR') { 
+
+this.converted = this.amount * rateUSDtoINR; 
+
+} else { 
+
+this.converted = this.amount; 
+
+} 
+
+} 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+App.html- 
+
+<div class="container"> 
+
+<h2> Currency Converter</h2> 
+
+ 
+
+<input type="number" [(ngModel)]="amount" placeholder="Enter amount" 
+/> 
+
+ 
+
+<div class="selectors"> 
+
+<select [(ngModel)]="fromCurrency"> 
+
+<option value="INR">INR</option> 
+
+<option value="USD">USD</option> 
+
+</select> 
+
+ 
+
+<span>to</span> 
+
+ 
+
+<select [(ngModel)]="toCurrency"> 
+
+<option value="USD">USD</option> 
+
+<option value="INR">INR</option> 
+
+</select> 
+
+</div> 
+
+ 
+
+<button (click)="convert()">Convert</button> 
+
+ 
+
+<h3 *ngIf="converted">Converted Amount: {{ converted | number:'1.2-2' }} 
+{{ toCurrency }}</h3> 
+
+</div>

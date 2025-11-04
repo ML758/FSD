@@ -1,0 +1,121 @@
+﻿Q1) 
+
+App.js- 
+
+import React, { useState } from 'react'; 
+
+ 
+
+function App() { 
+
+const [likes, setLikes] = useState(0); 
+
+ 
+
+const handleLike = () => { 
+
+setLikes(likes + 1); 
+
+}; 
+
+ 
+
+return ( 
+
+<div> 
+
+<h2>Like Button</h2> 
+
+<button onClick={handleLike}>  Like ({likes})</button> 
+
+</div> 
+
+); 
+
+} 
+
+ 
+
+export default App; 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+Q2) 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [CommonModule], 
+
+templateUrl: './app.component.html', 
+
+styleUrls: ['./app.component.css'] 
+
+}) 
+
+export class AppComponent { 
+
+title = 'Weather Info App'; 
+
+ 
+
+cities = [ 
+
+{ name: 'Mumbai', temperature: 30, condition: 'Sunny' }, 
+
+{ name: 'Delhi', temperature: 25, condition: 'Cloudy' }, 
+
+{ name: 'Chennai', temperature: 33, condition: 'Humid' }, 
+
+{ name: 'Kolkata', temperature: 28, condition: 'Rainy' }, 
+
+{ name: 'Pune', temperature: 26, condition: 'Clear' } 
+
+]; 
+
+} 
+
+ 
+
+ 
+
+
+
+App.html- 
+
+<div class="container"> 
+
+<h1>{{ title }}</h1> 
+
+<div class="weather-card" *ngFor="let city of cities"> 
+
+<h2>{{ city.name }}</h2> 
+
+<p>  Temperature: {{ city.temperature }}°C</p> 
+
+<p>  Condition: {{ city.condition }}</p> 
+
+</div> 
+
+</div>

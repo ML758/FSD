@@ -1,0 +1,173 @@
+﻿Q1) 
+
+npx create-react-app demo
+cd demo
+npm start
+
+
+App.js:
+import React, { useState } from "react";
+function App() {
+  const [name, setName] = useState("");
+  return (
+    <div>
+      <h2>Enter Your Name</h2>
+      <input onChange={(e) => setName(e.target.value)} placeholder="Type here" />
+      <p>Hello, {name}</p>
+    </div>
+  );
+}
+export default App;
+
+
+ 
+
+
+
+Q2) 
+
+ 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [CommonModule], 
+
+templateUrl: './app.html', 
+
+styleUrls: ['./app.css'] 
+
+}) 
+
+export class AppComponent { 
+
+images = [ 
+
+'https://picsum.photos/id/1015/300/200', 
+
+'https://picsum.photos/id/1016/300/200', 
+
+'https://picsum.photos/id/1018/300/200', 
+
+'https://picsum.photos/id/1020/300/200', 
+
+'https://picsum.photos/id/1024/300/200' 
+
+]; 
+
+ 
+
+selectedImage: string | null = null; 
+
+ 
+
+enlarge(image: string) { 
+
+
+
+this.selectedImage = image.replace('/300/200', '/800/600'); // load larger 
+image 
+
+} 
+
+ 
+
+close() { 
+
+this.selectedImage = null; 
+
+} 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App.html- 
+
+<h2 style="text-align:center;"> Image Gallery</h2> 
+
+ 
+
+<div class="gallery"> 
+
+<img *ngFor="let img of images" [src]="img" (click)="enlarge(img)" 
+alt="Gallery image" /> 
+
+</div> 
+
+ 
+
+<div class="overlay" *ngIf="selectedImage" (click)="close()"> 
+
+<img [src]="selectedImage" class="large" alt="Enlarged" /> 
+
+</div> 
+
+ 
+
+ 
+
+ 
+
+
+
+App.css- 
+
+.gallery img:hover { 
+
+transform: scale(); 
+
+} 
+
+ 
+
+.overlay { 
+
+position: fixed; 
+
+top: 0; 
+
+left: 0; 
+
+width: 100%; 
+
+height: 100%; 
+
+background: rgba(0,0,0,0.8); 
+
+display: flex; 
+
+justify-content: center; 
+
+align-items: center; 
+
+} 
+
+ 
+
+.large { 
+
+max-width: 50%; 
+
+max-height: 100%; 
+
+border-radius: 15px; 
+
+}

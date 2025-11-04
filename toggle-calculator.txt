@@ -1,0 +1,135 @@
+﻿Q1) 
+
+App.js- 
+
+import React, { useState } from "react";
+function App() {
+  const [show, setShow] = useState(true);
+  return (
+    <div>
+      <h2>Toggle Text Example</h2>
+      <button onClick={() => setShow(!show)}>Show / Hide</button>
+      {show && <p>This is some text!</p>}
+    </div>
+  );
+}
+export default App;
+ 
+
+ 
+
+Q2) 
+
+ 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { FormsModule } from '@angular/forms'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [FormsModule, CommonModule], 
+
+templateUrl: './app.html', 
+
+styleUrls: ['./app.css'] 
+
+}) 
+
+export class AppComponent { 
+
+num1!: number; 
+
+num2!: number; 
+
+result: number | string = ''; 
+
+ 
+
+add() { 
+
+this.result = this.num1 + this.num2; 
+
+} 
+
+ 
+
+subtract() { 
+
+
+
+this.result = this.num1 - this.num2; 
+
+} 
+
+ 
+
+multiply() { 
+
+this.result = this.num1 * this.num2; 
+
+} 
+
+ 
+
+divide() { 
+
+if (this.num2 === 0) { 
+
+this.result = 'Cannot divide by zero'; 
+
+} else { 
+
+this.result = this.num1 / this.num2; 
+
+} 
+
+} 
+
+} 
+
+ 
+
+ 
+
+App.html- 
+
+<div style="text-align:center; margin-top: 50px;"> 
+
+<h2>Simple Angular Calculator</h2> 
+
+ 
+
+<input type="number" [(ngModel)]="num1" placeholder="Enter first 
+number" /> <br><br> 
+
+<input type="number" [(ngModel)]="num2" placeholder="Enter second 
+number" /> <br><br> 
+
+ 
+
+
+
+<button (click)="add()">+</button> 
+
+<button (click)="subtract()">-</button> 
+
+<button (click)="multiply()">*</button> 
+
+<button (click)="divide()">/</button> 
+
+ 
+
+<h3 *ngIf="result !== ''">Result: {{ result }}</h3> 
+
+</div>

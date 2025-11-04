@@ -1,0 +1,140 @@
+﻿Q1) 
+
+App.js- 
+
+import React from "react"; 
+
+ 
+
+function App() { 
+
+const fruits = ["Apple", "Banana", "Cherry", "Mango", "Orange"]; 
+
+ 
+
+return ( 
+
+<div style={{ textAlign: "center", marginTop: "50px" }}> 
+
+<h2>Fruit List</h2> 
+
+<ul style={{ listStyle: "none", padding: 0 }}> 
+
+{fruits.map((fruit, index) => ( 
+
+<li key={index} style={{ margin: "8px", fontSize: "18px" }}> 
+
+{fruit} 
+
+</li> 
+
+))} 
+
+</ul> 
+
+</div> 
+
+); 
+
+} 
+
+ 
+
+export default App; 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+Q2) 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { CommonModule } from '@angular/common'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [CommonModule], 
+
+templateUrl: './app.html', 
+
+styleUrls: ['./app.css'] 
+
+}) 
+
+export class AppComponent { 
+
+quotes = [ 
+
+{ text: 'The best way to get started is to quit talking and begin doing.', author: 
+'Walt Disney' }, 
+
+{ text: 'Success is not in what you have, but who you are.', author: 'Bo 
+Bennett' }, 
+
+{ text: 'Don’t let yesterday take up too much of today.', author: 'Will Rogers' }, 
+
+{ text: 'The harder you work for something, the greater you’ll feel when you 
+achieve it.', author: 'Unknown' }, 
+
+{ text: 'Dream bigger. Do bigger.', author: 'Anonymous' } 
+
+]; 
+
+ 
+
+currentQuote = this.quotes[0]; 
+
+
+
+ 
+
+generateQuote() { 
+
+const randomIndex = Math.floor(Math.random() * this.quotes.length); 
+
+this.currentQuote = this.quotes[randomIndex]; 
+
+} 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App.html- 
+
+<div class="container"> 
+
+<h1>Quote Generator</h1> 
+
+<div class="quote-box"> 
+
+<p class="quote">"{{ currentQuote.text }}"</p> 
+
+<p class="author">- {{ currentQuote.author }}</p> 
+
+</div> 
+
+<button (click)="generateQuote()">New Quote</button> 
+
+</div>

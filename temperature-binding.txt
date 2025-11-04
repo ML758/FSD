@@ -1,0 +1,95 @@
+﻿Q1) 
+
+App.js- 
+
+import React from 'react'; 
+
+ 
+
+function Temperature() { 
+
+const temperature = 28; 
+
+return ( 
+
+<div> 
+
+<h2>It's {temperature}°C today</h2> 
+
+</div> 
+
+); 
+
+} 
+
+ 
+
+export default Temperature; 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q2) 
+
+App.ts- 
+
+import { Component, signal } from '@angular/core'; 
+
+import { RouterOutlet } from '@angular/router'; 
+
+import {FormsModule} from '@angular/forms';  
+
+ 
+
+import { CommonModule } from '@angular/common'; 
+
+
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+imports: [RouterOutlet,FormsModule,CommonModule], 
+
+templateUrl: './app.html', 
+
+styleUrl: './app.css' 
+
+}) 
+
+export class App { 
+
+title = 'Twowaydatabinding'; 
+
+name:string = ''; 
+
+surname = 'Kumar'; 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App.html- 
+
+<router-outlet> 
+
+<h2>Two-way Data Binding Example</h2> 
+
+<input type="text" [(ngModel)]="name" placeholder="Enter Your Name" /> 
+
+<h3>Hello, {{name}} {{surname}}</h3> 
+
+</router-outlet>

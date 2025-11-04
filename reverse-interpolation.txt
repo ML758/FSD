@@ -1,0 +1,137 @@
+﻿Q1) 
+
+App.js- 
+
+import React, { useState } from 'react'; 
+
+ 
+
+function App() { 
+
+  const [text, setText] = useState(''); 
+
+ 
+
+  const reverseText = (str) => { 
+
+    return str.split('').reverse().join(''); 
+
+  }; 
+
+ 
+
+  return ( 
+
+    <div style={{ textAlign: 'center', marginTop: '50px' }}> 
+
+      <h2>Reverse Text App</h2> 
+
+      <input 
+
+        type="text" 
+
+        placeholder="Enter text" 
+
+        value={text} 
+
+        onChange={(e) => setText(e.target.value)} 
+
+        style={{ padding: '8px', width: '250px' }} 
+
+      /> 
+
+      <h3>Reversed Text:</h3> 
+
+      <p>{reverseText(text)}</p> 
+
+    </div> 
+
+  ); 
+
+
+
+} 
+
+ 
+
+export default App; 
+
+ 
+
+ 
+
+ 
+
+Q2) 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { RouterOutlet } from '@angular/router'; 
+
+import { DatePipe } from '@angular/common'; 
+
+@Component({ 
+
+selector: 'app-root', 
+
+imports: [RouterOutlet, DatePipe], 
+
+templateUrl: './app.html', 
+
+styleUrls: ['./app.css'], 
+
+standalone: true 
+
+}) 
+
+export class App { 
+
+protected title = 'Angular 20 Interpolation'; 
+
+username = 'Raj'; 
+
+today = new Date(); 
+
+getGreeting(): string { 
+
+return `Welcome back, ${this.username}!`; 
+
+} 
+
+
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App.html- 
+
+<router-outlet> 
+
+<div style="text-align:center; margin-top: 50px;"> 
+
+<h1>{{ title }}</h1> 
+
+<p>Hello, {{ username }} </p> 
+
+<p>Today is: {{ today | date:'fullDate' }}</p> 
+
+<p>{{ getGreeting() }}</p> 
+
+<p>2 + 3 = {{ 2 + 3 }}</p> 
+
+</div> 
+
+<router-outlet />

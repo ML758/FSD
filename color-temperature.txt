@@ -1,0 +1,137 @@
+﻿Q1) 
+
+App.js- 
+
+import React, { useState } from "react"; 
+
+ 
+
+function App() { 
+
+const [color, setColor] = useState("black"); 
+
+ 
+
+const changeColor = () => { 
+
+const randomColor = 
+
+"#" + Math.floor(Math.random() * 16777215).toString(16); 
+
+setColor(randomColor); 
+
+}; 
+
+ 
+
+return ( 
+
+<div style={{ textAlign: "center", marginTop: "50px" }}> 
+
+<h1 style={{ color: color }}>Random Color Text</h1> 
+
+<button onClick={changeColor}>Change Color</button> 
+
+</div> 
+
+); 
+
+} 
+
+ 
+
+export default App; 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+Q2) 
+
+App.ts- 
+
+import { Component } from '@angular/core'; 
+
+import { FormsModule } from '@angular/forms'; 
+
+ 
+
+@Component({ 
+
+selector: 'app-root', 
+
+standalone: true, 
+
+imports: [FormsModule], 
+
+templateUrl: './app.html' 
+
+}) 
+
+export class AppComponent { 
+
+celsius: number = 0; 
+
+fahrenheit: number = 0; 
+
+ 
+
+toFahrenheit() { 
+
+this.fahrenheit = (this.celsius * 9 / 5) + 32; 
+
+} 
+
+ 
+
+toCelsius() { 
+
+this.celsius = (this.fahrenheit - 32) * 5 / 9; 
+
+} 
+
+} 
+
+ 
+
+
+
+ 
+
+ 
+
+ 
+
+App.html- 
+
+<h2>Temperature Converter</h2> 
+
+ 
+
+<label>Celsius:</label> 
+
+<input type="number" [(ngModel)]="celsius"><br> 
+
+<button (click)="toFahrenheit()">To Fahrenheit</button> 
+
+ 
+
+<br><br> 
+
+ 
+
+<label>Fahrenheit:</label> 
+
+<input type="number" [(ngModel)]="fahrenheit"><br> 
+
+<button (click)="toCelsius()">To Celsius</button> 
+
+ 
+
+<p>{{celsius}} °C = {{fahrenheit}} °F</p>
